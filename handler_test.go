@@ -33,8 +33,11 @@ func TestGet(t *testing.T) {
 }
 
 func TestAll(t *testing.T) {
-	expected := Info{Name: "roof", Email: "roofimon@gmail.com"}
-	body := Info{}
+	expected := []Info{
+		Info{Name: "roof", Email: "roofimon@gmail.com"},
+		Info{Name: "foor", Email: "foorimon@gmail.com"},
+	}
+	body := []Info{}
 	handler := makeHandler()
 	recorded := test.RunRequest(t, handler,
 		test.MakeSimpleRequest("GET", "http://1.2.3.4/contact", nil))
