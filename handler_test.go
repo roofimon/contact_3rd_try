@@ -18,8 +18,8 @@ func makeHandler() http.Handler {
 }
 
 func TestGet(t *testing.T) {
-	expected := Contact{Name: "roof", Email: "roofimon@gmail.com"}
-	body := Contact{}
+	expected := Info{Name: "roof", Email: "roofimon@gmail.com"}
+	body := Info{}
 	handler := makeHandler()
 	recorded := test.RunRequest(t, handler,
 		test.MakeSimpleRequest("GET", "http://1.2.3.4/contact/1", nil))
@@ -33,8 +33,8 @@ func TestGet(t *testing.T) {
 }
 
 func TestAll(t *testing.T) {
-	expected := Contact{Name: "roof", Email: "roofimon@gmail.com"}
-	body := Contact{}
+	expected := Info{Name: "roof", Email: "roofimon@gmail.com"}
+	body := Info{}
 	handler := makeHandler()
 	recorded := test.RunRequest(t, handler,
 		test.MakeSimpleRequest("GET", "http://1.2.3.4/contact", nil))
