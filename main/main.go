@@ -12,7 +12,6 @@ func main() {
 	api := rest.NewApi()
 	api.Use(rest.DefaultDevStack...)
 	router, err := rest.MakeRouter(
-		//&rest.Route{"GET", "/contact", GetAllCountries},
 		contact.All,
 		contact.Get,
 	)
