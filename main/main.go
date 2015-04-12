@@ -1,6 +1,7 @@
 package main
 
 import (
+	"contact"
 	"log"
 	"net/http"
 
@@ -10,9 +11,11 @@ import (
 func main() {
 	api := rest.NewApi()
 	api.Use(rest.DefaultDevStack...)
-	//router, err := rest.MakeRouter(
-	//	&rest.Route{"GET", "/contact", GetAllCountries},
-	//)
+	router, err := rest.MakeRouter(
+		//&rest.Route{"GET", "/contact", GetAllCountries},
+		contact.All,
+		contact.Get,
+	)
 	if err != nil {
 		log.Fatal(err)
 	}
